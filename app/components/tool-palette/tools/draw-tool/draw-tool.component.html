@@ -1,0 +1,29 @@
+<button mat-icon-button (click)="setTool()">
+  <mat-icon>gesture</mat-icon>
+</button>
+
+<ng-template #optionsTmpl>
+  {{ platform.isBrowser }}
+  <div *ngIf="platform.isBrowser">
+    <swiper-container
+      slides-per-view="3"
+      speed="500"
+      loop="true"
+      css-mode="true"
+    >
+      <swiper-slide>Slide 1</swiper-slide>
+      <swiper-slide>Slide 2</swiper-slide>
+      <swiper-slide>Slide 3</swiper-slide>
+    </swiper-container>
+  </div>
+  <div>
+    <div class="option-label">Thickness</div>
+    <mat-slider></mat-slider>
+  </div>
+  <div>
+    <div class="option-label">Color</div>
+    <button mat-icon-button>
+      <mat-icon>color_lens</mat-icon>
+    </button>
+  </div>
+</ng-template>

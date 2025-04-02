@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { MatCardModule } from '@angular/material/card';
 
 @Component({
     selector: 'app-stage',
@@ -13,7 +14,8 @@ import { Component } from '@angular/core';
         background-repeat: no-repeat;
         background-image:url('https://angular.io/assets/images/logos/angular/angular.png');
       }
-      `]
+      `],
+      imports: [MatCardModule]
 })
 export class StageComponent {
     constructor() { }

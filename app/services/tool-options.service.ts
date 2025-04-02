@@ -1,7 +1,7 @@
 
 import { Injectable } from '@angular/core';
-import { BehaviorSubject } from 'rxjs/BehaviorSubject';
 import { Portal } from '@angular/cdk/portal';
+import { BehaviorSubject } from 'rxjs';
 
 @Injectable()
 export class ToolOptionsService {
@@ -17,6 +17,6 @@ export class ToolOptionsService {
   }
 
   constructor() {
-    this.toolOptionsPortalSubject = new BehaviorSubject(undefined);
+    this.toolOptionsPortalSubject = new BehaviorSubject(undefined as any);
   }
 }

@@ -11,55 +11,50 @@ import { ObserversModule } from '@angular/cdk/observers';
 import { OverlayModule } from '@angular/cdk/overlay';
 import { PlatformModule } from '@angular/cdk/platform';
 import { PortalModule } from '@angular/cdk/portal';
-import { ScrollDispatchModule } from '@angular/cdk/scrolling';
+import { ScrollDispatcher } from '@angular/cdk/scrolling';
 import { CdkStepperModule } from '@angular/cdk/stepper';
 import { CdkTableModule } from '@angular/cdk/table';
-import {
-  MatAutocompleteModule,
-  MatButtonModule,
-  MatButtonToggleModule,
-  MatCardModule,
-  MatCheckboxModule,
-  MatChipsModule,
-  MatDatepickerModule,
-  MatDialogModule,
-  MatExpansionModule,
-  MatGridListModule,
-  MatIconModule,
-  MatInputModule,
-  MatListModule,
-  MatMenuModule,
-  MatNativeDateModule,
-  MatProgressBarModule,
-  MatProgressSpinnerModule,
-  MatRadioModule,
-  MatRippleModule,
-  MatSelectModule,
-  MatSidenavModule,
-  MatSliderModule,
-  MatSlideToggleModule,
-  MatSnackBarModule,
-  MatStepperModule,
-  MatTableModule,
-  MatTabsModule,
-  MatToolbarModule,
-  MatTooltipModule,
-} from '@angular/material';
+
+import {MatTooltipModule} from '@angular/material/tooltip';
+import {MatToolbarModule} from '@angular/material/toolbar';
+import {MatTabsModule} from '@angular/material/tabs';
+import {MatTableModule} from '@angular/material/table';
+import {MatStepperModule} from '@angular/material/stepper';
+import {MatSnackBarModule} from '@angular/material/snack-bar';
+import {MatSlideToggleModule} from '@angular/material/slide-toggle';
+import {MatSliderModule} from '@angular/material/slider';
+import {MatSidenavModule} from '@angular/material/sidenav';
+import {MatSelectModule} from '@angular/material/select';  
+import {MatRippleModule} from '@angular/material/core';
+import {MatRadioModule} from '@angular/material/radio';
+import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
+import {MatProgressBarModule} from '@angular/material/progress-bar';
+import {MatDatepickerModule} from '@angular/material/datepicker';
+import {MatMenuModule} from '@angular/material/menu';
+import {MatListModule} from '@angular/material/list';
+import {MatInputModule} from '@angular/material/input';
+import {MatIconModule} from '@angular/material/icon';
+import {MatGridListModule} from '@angular/material/grid-list';
+import {MatExpansionModule} from '@angular/material/expansion';
+import {MatDialogModule} from '@angular/material/dialog';
+import {MatChipsModule} from '@angular/material/chips';
+import {MatCheckboxModule} from '@angular/material/checkbox';
+import {MatCardModule} from '@angular/material/card';
+import {MatButtonToggleModule} from '@angular/material/button-toggle';
+import {MatButtonModule} from '@angular/material/button';
+import {MatAutocompleteModule} from '@angular/material/autocomplete';
 
 // Components
 import { AppComponent } from './app.component';
 import { StageComponent } from './components/stage/stage.component';
 import { ToolOptionsComponent } from './components/tool-options/tool-options.component';
 import { ToolPaletteComponent } from './components/tool-palette/tool-palette.component';
-import { DrawToolComponent } from './components/tools/draw-tool/draw-tool.component';
-import { CropToolComponent } from './components/tools/crop-tool/crop-tool.component';
-import { TextToolComponent } from './components/tools/text-tool/text-tool.component';
+import { DrawToolComponent } from './components/tool-palette/tools/draw-tool/draw-tool.component';
+import { CropToolComponent } from './components/tool-palette/tools/crop-tool/crop-tool.component';
+import { TextToolComponent } from './components/tool-palette/tools/text-tool/text-tool.component';
 
 // Services
 import { ToolOptionsService } from './services/tool-options.service';
-import { register } from 'swiper/element/bundle';
-
-register();
 
 @NgModule({
   exports: [
@@ -70,7 +65,7 @@ register();
     OverlayModule,
     PlatformModule,
     PortalModule,
-    ScrollDispatchModule,
+    ScrollDispatcher,
     CdkStepperModule,
     CdkTableModule,
 
@@ -103,7 +98,6 @@ register();
     MatTabsModule,
     MatToolbarModule,
     MatTooltipModule,
-    MatNativeDateModule,
   ],
 })
 export class MaterialModule {}
