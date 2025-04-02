@@ -1,6 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
-import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { CUSTOM_ELEMENTS_SCHEMA, NgModule } from '@angular/core';
+import { BrowserAnimationsModule, provideAnimations } from '@angular/platform-browser/animations';
+import { ApplicationConfig, CUSTOM_ELEMENTS_SCHEMA, NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { FlexLayoutModule } from '@angular/flex-layout';
@@ -25,7 +25,7 @@ import {MatSlideToggleModule} from '@angular/material/slide-toggle';
 import {MatSliderModule} from '@angular/material/slider';
 import {MatSidenavModule} from '@angular/material/sidenav';
 import {MatSelectModule} from '@angular/material/select';  
-import {MatRippleModule} from '@angular/material/core';
+import {MatRippleModule, provideNativeDateAdapter} from '@angular/material/core';
 import {MatRadioModule} from '@angular/material/radio';
 import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
 import {MatProgressBarModule} from '@angular/material/progress-bar';
@@ -55,6 +55,7 @@ import { TextToolComponent } from './components/tool-palette/tools/text-tool/tex
 
 // Services
 import { ToolOptionsService } from './services/tool-options.service';
+import { provideHttpClient } from '@angular/common/http';
 
 @NgModule({
   exports: [
@@ -65,7 +66,6 @@ import { ToolOptionsService } from './services/tool-options.service';
     OverlayModule,
     PlatformModule,
     PortalModule,
-    ScrollDispatcher,
     CdkStepperModule,
     CdkTableModule,
 
@@ -102,8 +102,10 @@ import { ToolOptionsService } from './services/tool-options.service';
 })
 export class MaterialModule {}
 
-@NgModule({
-  imports: [
+export const appConfig: ApplicationConfig = {
+  providers: [
+    provideAnimations(), provideHttpClient(), provideNativeDateAdapter(),
+    ToolOptionsService,
     BrowserModule,
     CommonModule,
     MaterialModule,
@@ -111,18 +113,5 @@ export class MaterialModule {}
     FormsModule,
     ReactiveFormsModule,
     BrowserAnimationsModule,
-  ],
-  declarations: [
-    AppComponent,
-    StageComponent,
-    ToolOptionsComponent,
-    ToolPaletteComponent,
-    DrawToolComponent,
-    CropToolComponent,
-    TextToolComponent,
-  ],
-  bootstrap: [AppComponent],
-  providers: [ToolOptionsService],
-  schemas: [CUSTOM_ELEMENTS_SCHEMA],
-})
-export class AppModule {}
+  ]
+}

@@ -1,0 +1,12 @@
+
+<div class="example-portal-outlet">
+  portal outlet
+  <ng-container [cdkPortalOutlet]="(toolOptionsService.toolOptionsPortal$ | async)"></ng-container>
+</div>
+<div class="tool-options" *ngIf="toolOptionsService.toolOptionsPortal$ | async as portal">
+  <div class="tool-options__header">Options</div>
+  
+  <div class="tool_options__container">
+    <ng-container [cdkPortalOutlet]="portal"></ng-container>
+  </div>
+</div>
