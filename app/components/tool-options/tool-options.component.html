@@ -1,0 +1,6 @@
+<div class="tool-options" *ngIf="toolOptionsService.toolOptionsPortal$ | async as portal">
+  <div class="tool-options__header">Options</div>
+  <div class="tool_options__container">
+    <ng-container [cdkPortalHost]="portal"></ng-container>
+  </div>
+</div>
